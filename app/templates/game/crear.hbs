@@ -1,0 +1,40 @@
+<div class="row">
+	<div class="col s12 crear-header">
+		<div class="row">
+			<div class="col s4">
+				<h5 class="center-align">Código: </h5>
+			</div>
+			<div class="col s4">
+				<h5 class="center-align">Status: </h5>
+			</div>
+			<div class="col s4">
+				<h5 class="center-align">Jugadores: </h5>
+			</div>
+			<div class="col s6">
+				<a class="btn disabled">Comenzar Juego</a>
+			</div>
+			<div class="col s6 right-align">
+				<a class="waves-effect waves-light btn">Salir</a>
+			</div>
+		</div>
+	</div>
+	<div class="col s6 center-align">
+		<h5>Jugador 1</h5>
+		<img class="circle player" src="http://pluspng.com/img-png/user-png-icon-male-user-icon-512.png">
+		<div class="row">
+			<div class="col s9">
+				{{#power-select disabled=true selected=selected options=options onchange=(action "chooseGame") as |option|}}
+				  {{option}}
+				{{/power-select}}
+			</div>
+			<div class="col s3">
+				<a class="btn-floating btn-large waves-effect waves-light red"><i class="material-icons">play_arrow</i></a>
+			</div>
+		</div>
+	</div>
+	<div class="col s6 center-align">
+		<h5>Jugador 2</h5>
+		<img class="circle player" src="http://pluspng.com/img-png/user-png-icon-male-user-icon-512.png">
+		<h6>Esperando...</h6>
+	</div>
+</div>

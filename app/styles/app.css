@@ -1,0 +1,9 @@
+.crear-header{
+	border-bottom: 2px solid black;
+}
+
+.player{
+	width: 30%;
+	height: auto;
+	margin-top: 15px;
+}
