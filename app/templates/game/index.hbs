@@ -14,12 +14,19 @@
 		    </thead>
 
 		    <tbody>
-		      <tr>
-		        <td>12345</td>
-		        <td>Creado</td>
-		        <td>2</td>
-		        <td><a class="waves-effect waves-light btn blue"><i class="material-icons left">videogame_asset</i>Join</a></td>
-		      </tr>
+		      {{#each this.model as |game|}}
+		      	<tr>
+		      		
+			        <td>{{game.id}}</td>
+			        <td>{{game.status}}</td>
+			        <td>{{game.total_users}}</td>
+			        <td>
+			        	{{#if game.status}}
+			        		<a class="waves-effect waves-light btn blue"><i class="material-icons left">videogame_asset</i>Join</a>
+			        	{{/if}}
+			        </td>
+			      </tr>
+		      {{/each}}
 		    </tbody>
 		</table>
 	</div>
