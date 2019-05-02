@@ -8,7 +8,7 @@ const Router = EmberRouter.extend({
 
 Router.map(function() {
   this.route('game', {path: '/'}, function() {
-    this.route('crear');
+    this.route('crear', {path: '/juego/:play_id'});
     this.route('jugar');
   });
 });
