@@ -7,3 +7,7 @@
 	height: auto;
 	margin-top: 15px;
 }
+
+select{
+	display: block !important;
+}

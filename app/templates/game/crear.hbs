@@ -1,4 +1,3 @@
-{{log this.model.game}}
 <div class="row">
 	<div class="col s12 crear-header">
 		<div class="row">
@@ -6,23 +5,25 @@
 				<h5 class="center-align">Código: {{this.model.game.code}}</h5>
 			</div>
 			<div class="col s4">
-				<h5 class="center-align">Status: </h5>
+				<h5 class="center-align">Status: {{this.model.game.myStatus}}</h5>
 			</div>
 			<div class="col s4">
-				<h5 class="center-align">Jugadores: </h5>
+				<h5 class="center-align">Jugadores: {{this.model.game.total_users}}</h5>
 			</div>
 			<div class="col s6">
-				<a class="btn disabled">Comenzar Juego</a>
+				<a class="btn {{if (lt this.model.game.total_users 2) "disabled"}}">Comenzar Juego</a>
 			</div>
 			<div class="col s6 right-align">
 				<a class="waves-effect waves-light btn">Salir</a>
 			</div>
 		</div>
 	</div>
-	<div class="col s6 center-align">
-		<Player @name="Jugador 1"></Player>
-	</div>
-	<div class="col s6 center-align">
-		<Player @name="Jugador 2"></Player>
+	{{log this.model.player}}
+	<div class="col s12">
+		{{#each this.model.player as |player|}}
+			<div class="col s6 center-align">
+				<Player @name={{player.user_id}}></Player>
+			</div>
+		{{/each}}
 	</div>
 </div>

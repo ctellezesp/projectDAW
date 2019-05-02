@@ -8,4 +8,6 @@ export default class GameIndexRoute extends Route {
 			users: this.store.findAll('user')
 		})
 	}
+
+
 }

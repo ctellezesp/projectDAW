@@ -10,11 +10,18 @@ export default class GameIndexController extends Controller {
 	}
 
 	@tracked options = this.model.users;
-	@tracked user  = this.store.query('user', {id: 1});
+	@tracked user
 	@action
 	selectUser(myUser){
-		//this.user = id.id;
-		this.set('user', myUser.id)
-		console.log(this.user);
+		console.log(myUser);
+		this.set('user', myUser);
+	}
+
+	@action addUser(game){
+		let selectUser = this.store.createRecord('play', {
+			user_id: this.user,
+			game_id: game
+		})
+		selectUser.save();
 	}
 }
