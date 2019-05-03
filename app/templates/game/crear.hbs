@@ -14,14 +14,14 @@
 				<a class="btn {{if (lt this.model.game.total_users 2) "disabled"}}" onclick={{action "startGame" this.model.game.id}}>Comenzar Juego</a>
 			</div>
 			<div class="col s6 right-align">
-				<a class="waves-effect waves-light btn">Salir</a>
+				<LinkTo @route="game.index"><a class="waves-effect waves-light btn">Salir</a></LinkTo>
 			</div>
 		</div>
 	</div>
 	<div class="col s12">
 		{{#each this.model.player as |player|}}
 			<div class="col s6 center-align">
-				<Player @name={{player.user.username}} @id={{player.user.id}} @game={{this.model.game.id}}></Player>
+				<Player @human={{player.user.username}} @id={{player.user.id}} @game={{this.model.game.id}}></Player>
 			</div>
 		{{/each}}
 	</div>
