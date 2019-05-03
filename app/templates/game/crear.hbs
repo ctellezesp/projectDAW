@@ -11,18 +11,17 @@
 				<h5 class="center-align">Jugadores: {{this.model.game.total_users}}</h5>
 			</div>
 			<div class="col s6">
-				<a class="btn {{if (lt this.model.game.total_users 2) "disabled"}}">Comenzar Juego</a>
+				<a class="btn {{if (lt this.model.game.total_users 2) "disabled"}}" onclick={{action "startGame" this.model.game.id}}>Comenzar Juego</a>
 			</div>
 			<div class="col s6 right-align">
 				<a class="waves-effect waves-light btn">Salir</a>
 			</div>
 		</div>
 	</div>
-	{{log this.model.player}}
 	<div class="col s12">
 		{{#each this.model.player as |player|}}
 			<div class="col s6 center-align">
-				<Player @name={{player.user_id}}></Player>
+				<Player @name={{player.user.username}}></Player>
 			</div>
 		{{/each}}
 	</div>
