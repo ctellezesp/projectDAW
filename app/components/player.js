@@ -7,7 +7,7 @@ export default class PlayerComponent extends Component {
 	@tracked options = ['Rock', 'Paper', 'Scissors', 'Lizard', 'Spock'];
 	@tracked selected = 'Choice your game';
 	@tracked turn;
-	@tracked store = service();
+	@service store;
 	
 	@action 
 	chooseGame(option){
@@ -28,18 +28,21 @@ export default class PlayerComponent extends Component {
 
 	@action
 	play(){
-		console.log(this.turn);
+		let turn = this.turn;
 		console.log(this.args);
-		debugger;
-		post = this.store.query('play', {
-
+		let user = this.args.id;
+		let game = this.args.game;
+		let post = this.store.query('play', {
 		  filter: {
-		    game_id: this.args.model.game.id,
-		    user_id: this.args.player.user.username
+		    game_id: game,
+		    user_id: user
 		  }
-		}).then(function(post) {
-		  console.log(post);
-		  debugger;
+		})
+		.then(result => {
+			result.set('choice', turn);
+			console.log(result);
+			result.save();
+			console.log(result);
 		});
 	}
 }

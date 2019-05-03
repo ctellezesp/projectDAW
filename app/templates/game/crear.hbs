@@ -21,7 +21,7 @@
 	<div class="col s12">
 		{{#each this.model.player as |player|}}
 			<div class="col s6 center-align">
-				<Player @name={{player.user.username}}></Player>
+				<Player @name={{player.user.username}} @id={{player.user.id}} @game={{this.model.game.id}}></Player>
 			</div>
 		{{/each}}
 	</div>
