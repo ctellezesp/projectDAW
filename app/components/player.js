@@ -7,7 +7,15 @@ export default class PlayerComponent extends Component {
 	@tracked options = ['Rock', 'Paper', 'Scissors', 'Lizard', 'Spock'];
 	@tracked selected = 'Choice your game';
 	@tracked turn;
+	@tracked oculto = true;
 	@service store;
+
+	@action
+	searchUser(id){
+		let user = this.store.peekRecord('user', id);
+		console.log(user);
+		return user.username;
+	}
 	
 	@action 
 	chooseGame(option){
@@ -26,11 +34,10 @@ export default class PlayerComponent extends Component {
 		}
 	}
 
-	@action
+	/*@action
 	play(){
 		let turn = this.turn;
-		console.log(this.args);
-		let user = this.args.id;
+		let user = this.args.user;
 		let game = this.args.game;
 		let post = this.store.query('play', {
 		  filter: {
@@ -41,8 +48,8 @@ export default class PlayerComponent extends Component {
 		.then(result => {
 			result.set('choice', turn);
 			console.log(result);
-			result.save();
+			result.save(); 	
 			console.log(result);
 		});
-	}
+	}*/
 }

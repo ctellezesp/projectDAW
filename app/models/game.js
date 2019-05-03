@@ -7,6 +7,8 @@ export default class GameModel extends Model {
 	@attr('number') code;
 	@attr('number') status;
 	@attr('number') total_users;
+	@attr('number') winner_id;
+	@attr('string') winner_name;
 
 	get myStatus(){
 		switch(this.status){

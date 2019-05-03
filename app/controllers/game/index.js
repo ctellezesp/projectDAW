@@ -3,6 +3,7 @@ import { tracked } from '@glimmer/tracking';
 import { action } from '@ember/object';
 
 export default class GameIndexController extends Controller {
+
 	@action
 	createGame(){
 		let game = this.store.createRecord('game');
@@ -18,8 +19,6 @@ export default class GameIndexController extends Controller {
 	}
 
 	@action addUser(game){
-		console.log(this.user);
-		debugger;
 		let selectUser = this.store.createRecord('play', {
 			user_id: Number(this.user),
 			game_id: Number(game)
