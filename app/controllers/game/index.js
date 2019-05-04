@@ -18,7 +18,8 @@ export default class GameIndexController extends Controller {
 		this.set('user', myUser);
 	}
 
-	@action addUser(game){
+	@action 
+	addUser(game){
 		let selectUser = this.store.createRecord('play', {
 			user_id: Number(this.user),
 			game_id: Number(game)

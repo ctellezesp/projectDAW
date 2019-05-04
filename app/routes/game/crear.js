@@ -11,4 +11,16 @@ export default class AppProfileRoute extends Route {
 			player: this.store.query('play', {game_id: params.play_id}),
 		});
 	}
+
+	/*@action
+	willTransition(){
+		clearInterval(this.poll);
+	}
+
+	@action
+	didTransition(params){
+		this.poll = setInterval(async() => {
+			let game = await this.store.findRecord('game', params.play_id);
+		}, 5000);
+	}*/
 }

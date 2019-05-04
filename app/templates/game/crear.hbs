@@ -11,7 +11,7 @@
 				<h5 class="center-align">Jugadores: {{this.model.game.total_users}}</h5>
 			</div>
 			<div class="col s4">
-				<a id="create" class="btn {{if (lt this.model.game.total_users 2) "disabled"}}" onclick={{action "startGame" this.model.game.id}}>Comenzar Juego</a>
+				<a id="create" class="btn {{if (lt this.model.game.total_users 2) "disabled"}}" onclick={{action "startGame" this.model.game.id}} >Comenzar Juego</a>
 			</div>
 			<div class="col s4 center-align">
 				{{#if this.model.game.winner_name}}
@@ -26,7 +26,7 @@
 	<div class="col s12">
 		{{#each this.model.player as |player|}}
 			<div class="col s6 center-align">
-				<Player @user={{player.user_id}} @game={{this.model.game.id}} @status={{this.model.game.status}}></Player>
+				<Player @user={{player.user.username}} @id={{player.id}} @game={{this.model.game.id}} @status={{this.model.game.status}} @play={{action this.play}}></Player>
 			</div>
 		{{/each}}
 	</div>

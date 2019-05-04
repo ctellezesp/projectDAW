@@ -31,27 +31,15 @@ export default class GameCrearController extends Controller {
 		}
 	}
 
-
 	@action
-	play(childUser, childGame, childTurn){
-		let turn = childTurn;
-		let user = childUser;
-		let game = childGame;
+	async play(selectId, selectTurn) {
+	  let turn = selectTurn;
+		let id = selectId;
 		console.log(turn);
-		console.log(user);
-		console.log(game);
-		debugger;
-		let post = this.store.query('play', {
-		  filter: {
-		    game_id: game,
-		    user_id: user
-		  }
-		})
-		.then(result => {
-			result.set('choice', turn);
-			console.log(result);
-			result.save(); 	
-			console.log(result);
+		console.log(id);
+	  	let post = await this.store.findRecord('play', id).then((result) => {
+	   	result.set('choice', turn);
+		result.save();
 		});
 	}
 }
