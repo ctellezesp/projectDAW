@@ -3,7 +3,7 @@ const { Model, attr } = DS;
 import EmberObject, { computed } from '@ember/object';
 
 
-export default class GameModel extends Model {
+export default class GameModel extends Model{
 	@attr('number') code;
 	@attr('number') status;
 	@attr('number') total_users;
@@ -20,4 +20,5 @@ export default class GameModel extends Model {
 			break;
 		}
 	}
+
 }

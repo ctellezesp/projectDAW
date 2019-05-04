@@ -4263,6 +4263,13 @@ ember-maybe-in-element@^0.2.0:
   dependencies:
     ember-cli-babel "^7.1.0"
 
+ember-poll@^1.4.0:
+  version "1.4.0"
+  resolved "https://registry.yarnpkg.com/ember-poll/-/ember-poll-1.4.0.tgz#bc598a49a531e36bc781860ab504263bfacbd80d"
+  integrity sha512-os4PKEgRTmcEd+gKDtWt2Qn81ZiWG3HtzO9E4eaG2UL44Kli6OzIxhoQGa2YqxY+rxlvUhREZh8P8Gf6O9AWEA==
+  dependencies:
+    ember-cli-babel "^6.6.0"
+
 ember-power-select@^2.3.2:
   version "2.3.2"
   resolved "https://registry.yarnpkg.com/ember-power-select/-/ember-power-select-2.3.2.tgz#8bd20989c52ec53e5f526bd5d3267aac6f0a76f4"

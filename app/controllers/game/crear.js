@@ -33,10 +33,14 @@ export default class GameCrearController extends Controller {
 
 
 	@action
-	play(user_id, game_id, choice){
-		let turn = choice;
-		let user = user_id;
-		let game = game_id;
+	play(gameSelect, userSelect){
+		let turn = this.turn;
+		let user = userSelect;
+		let game = gameSelect;
+		console.log(turn);
+		console.log(user);
+		console.log(game);
+		debugger;
 		let post = this.store.query('play', {
 		  filter: {
 		    game_id: game,
