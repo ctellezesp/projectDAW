@@ -33,10 +33,10 @@ export default class GameCrearController extends Controller {
 
 
 	@action
-	play(gameSelect, userSelect){
-		let turn = this.turn;
-		let user = userSelect;
-		let game = gameSelect;
+	play(childUser, childGame, childTurn){
+		let turn = childTurn;
+		let user = childUser;
+		let game = childGame;
 		console.log(turn);
 		console.log(user);
 		console.log(game);

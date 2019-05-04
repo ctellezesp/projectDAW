@@ -26,19 +26,7 @@
 	<div class="col s12">
 		{{#each this.model.player as |player|}}
 			<div class="col s6 center-align">
-				<h5>{{player.human.username}}</h5>
-				<img class="circle player" src="http://pluspng.com/img-png/user-png-icon-male-user-icon-512.png">
-				<div class="row">
-					<div class="col s9">
-						
-							{{#power-select disabled=(if (not-eq this.model.game.status 2) true) selected=selected options=options onchange=(action "chooseGame") as |option|}}
-							  {{option}}
-							{{/power-select}}
-					</div>
-					<div class="col s3">
-						<a class="btn-floating btn-large waves-effect waves-light red" onclick={{action "play" this.model.game.id player.user_id}}><i class="material-icons">play_arrow</i></a>
-					</div>
-				</div>
+				<Player @user={{player.user_id}} @game={{this.model.game.id}} @status={{this.model.game.status}}></Player>
 			</div>
 		{{/each}}
 	</div>

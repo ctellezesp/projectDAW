@@ -1,14 +1,17 @@
 import Component from '@glimmer/component';
 import { tracked } from '@glimmer/tracking';
 import { action } from '@ember/object';
-import {inject as service} from '@ember/service';
+import { inject as service } from '@ember/service';
 
 export default class PlayerComponent extends Component {
 	@tracked options = ['Rock', 'Paper', 'Scissors', 'Lizard', 'Spock'];
 	@tracked selected = 'Choice your game';
 	@tracked turn;
 	@tracked oculto = true;
-	@service store;
+	//@service store;
+	@service parent;
+
+
 
 	@action
 	searchUser(id){
@@ -34,12 +37,12 @@ export default class PlayerComponent extends Component {
 		}
 	}
 
-	/*@action
+	@action
 	play(){
 		let turn = this.turn;
 		let user = this.args.user;
-		let game = this.args.game;
-		let post = this.store.query('play', {
+		let game = Number(this.args.game);
+		/*let post = this.store.query('play', {
 		  filter: {
 		    game_id: game,
 		    user_id: user
@@ -50,6 +53,8 @@ export default class PlayerComponent extends Component {
 			console.log(result);
 			result.save(); 	
 			console.log(result);
-		});
-	}*/
+		});*/
+
+		return this.parent.play(user, game, turn);
+	}
 }
