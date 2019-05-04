@@ -11,7 +11,7 @@
 				<h5 class="center-align">Jugadores: {{this.model.game.total_users}}</h5>
 			</div>
 			<div class="col s4">
-				<a id="create" class="btn {{if (lt this.model.game.total_users 2) "disabled"}}" onclick={{action "startGame" this.model.game.id}} >Comenzar Juego</a>
+				<a id="create" class="btn {{if (or (lt this.model.game.total_users 2) (gt this.model.game.status 1)) "disabled"}}" onclick={{action "startGame" this.model.game.id}} >Comenzar Juego</a>
 			</div>
 			<div class="col s4 center-align">
 				{{#if this.model.game.winner_name}}

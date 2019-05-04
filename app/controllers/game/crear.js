@@ -11,7 +11,7 @@ export default class GameCrearController extends Controller {
 		this.store.findRecord('game', id).then(function(post) {
 		  post.set('status', 2);
 		  post.save();
-		});
+		});	
 	}
 
 	@action 
@@ -42,4 +42,5 @@ export default class GameCrearController extends Controller {
 		result.save();
 		});
 	}
+
 }
