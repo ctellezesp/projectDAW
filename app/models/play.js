@@ -5,5 +5,5 @@ export default class PlayModel extends Model {
 	@attr('number') user_id;
 	@attr('number') game_id;
 	@attr('number') choice;
-	@belongsTo('user') human;
+	@belongsTo('user') usuario;
 }

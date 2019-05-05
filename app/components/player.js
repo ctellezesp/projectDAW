@@ -4,34 +4,30 @@ import { action } from '@ember/object';
 import { inject as service } from '@ember/service';
 
 export default class PlayerComponent extends Component {
-	@tracked options = ['Rock', 'Paper', 'Scissors', 'Lizard', 'Spock'];
-	@tracked selected = 'Choice your game';
+	//@tracked options = ['Rock', 'Paper', 'Scissors', 'Lizard', 'Spock'];
+	@tracked options = [
+		{ id: 1, name: 'Rock', img: '/media/rock.png' },
+	  	{ id: 2, name: 'Paper', img: '/media/paper.png' },
+	  	{ id: 3, name: 'Scissors', img: '/media/scissors.png' },
+	  	{ id: 4, name: 'Lizard', img: '/media/lizard.png' },
+	  	{ id: 5, name: 'Spock', img: '/media/spock.png' }
+  	]
+	@tracked selected = { id: 0, name: 'Select a choice', img: '/media/option.png' }
 	@tracked turn;
 	@tracked oculto = true;
 	@tracked name;
 	@service store;
 	@service parent;
-
-	@action
-	didTransition(){
-		let user = this.store.peekRecord('user', id);
-		console.log(`User: ${user}`);
-		name = user.username;
-	}
-
-
-
-	@action
-	searchUser(id){
-		let user = this.store.peekRecord('user', id);
-		console.log(`User: ${user}`);
-		return user.username;
-	}
 	
 	@action 
 	chooseGame(option){
-		this.selected = option;
-		switch(this.selected){
+		console.log(option.name);
+		this.selected = {
+			id: option.id,
+			name: option.name,
+			img: option.img
+		};
+		switch(option.name){
 			case "Rock": this.turn = 1;
 			break;
 			case "Paper": this.turn = 2;

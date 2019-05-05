@@ -1,13 +1,20 @@
-<h5>{{@user}}</h5>
-<img class="circle player" src="http://pluspng.com/img-png/user-png-icon-male-user-icon-512.png">
-<div class="row">
-	<div class="col s9">
+<h5 class="white-text">Jugador: {{@user}}</h5>
+<img class="circle player" src="/media/player.png">
+<div class="row player-row" style="display: {{if (gt @status 1) "block"}} !important">
+	<div class="col s10">
 		
 			{{#power-select disabled=(if (not-eq @winner null) true) selected=selected options=options onchange=(action "chooseGame") as |option|}}
-			  {{option}}
+			  <div class="row select-row">
+			  	<div class="col s2">
+			  		<img src={{option.img}} class="img-select">
+			  	</div>
+			  	<div class="col s10 center-align">
+			  		<strong class="text-select">{{option.name}}</strong>
+			  	</div>
+			  </div>
 			{{/power-select}}
 	</div>
-	<div class="col s3">
+	<div class="col s2 left-align">
 		<a class="btn-floating btn-large waves-effect waves-light red" onclick={{action "play"}}><i class="material-icons">play_arrow</i></a>
 	</div>
 </div>

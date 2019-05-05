@@ -1,6 +1,6 @@
-<div class="row">
+<div class="row" id="index-main">
 	<div class="col s6 l2 offset-l1 center-align">
-		<a {{action this.createGame}} class="waves-effect waves-light btn blue btn-create"><i class="material-icons left">add</i>Crear Juego</a>
+		<a {{action this.createGame}} class="waves-effect waves-light btn blue btn-create pulse"><i class="material-icons left">add</i>Crear Juego</a>
 	</div>
 	<div class="col s6 l3">
 		<select onchange={{action "selectUser" value="target.value"}}>
@@ -26,7 +26,8 @@
 		      {{#each this.model.games as |game|}}
 		      	<tr>
 			        <td>{{game.code}}</td>
-			        <td>{{game.myStatus}}</td>
+			        <td>{{if (eq game.status 1) "Created"}} {{if (eq game.status 2) "Started"}} {{if (eq game.status 3) "Completed"}}</td>
+			        <!--Se uso varios if debido a que la computed propertie no funcionaba con el pooling -->
 			        <td>{{game.total_users}}</td>
 			        <td>
 			        	{{#if (lt game.total_users 2)}}

@@ -11,3 +11,43 @@
 select{
 	display: block !important;
 }
+
+#index-main{
+	margin-top: 20px;
+}
+
+body{
+	background-color: #263238;
+}
+
+table{
+	background-color: white;
+	margin-top: 5px;
+}
+
+.ember-power-select-trigger {
+    padding: 10px !important;
+}
+
+.img-select{
+	width: 50px;
+	height: 50px;
+}
+
+.text-select{
+	font-size: 2em;
+}
+
+.select-row{
+	padding: 0 !important;
+	margin: 0 !important;
+	border: 0 !important;
+}
+
+.ember-power-select-selected-item, .ember-power-select-placeholder{
+	margin-left: 0;
+}
+
+.player-row{
+	display: none !important;
+}
