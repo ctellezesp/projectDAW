@@ -17,7 +17,10 @@
 			<div class="col s4 center-align">
 				{{#if this.model.game.winner_name}}
 					<h5>Winner: {{this.model.game.winner_name}}</h5>
+					{{else }}
+						<h5>{{if (eq this.model.game.status 3) "Draw"}}</h5>
 				{{/if}}
+				
 			</div>
 			<div class="col s4 right-align">
 				<LinkTo @route="game.index"><a class="waves-effect waves-light btn">Exit</a></LinkTo>

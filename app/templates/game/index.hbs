@@ -1,10 +1,10 @@
 <div class="row" id="index-main">
 	<div class="col s6 l2 offset-l1 center-align">
-		<a {{action this.createGame}} class="waves-effect waves-light btn blue btn-create pulse"><i class="material-icons left">add</i>Crear Juego</a>
+		<a {{action this.createGame}} class="waves-effect waves-light btn blue btn-create pulse"><i class="material-icons left">add</i>Create Game</a>
 	</div>
 	<div class="col s6 l3">
 		<select onchange={{action "selectUser" value="target.value"}}>
-				<option value="">Selecciona un jugador</option>
+				<option value="">Choice a player</option>
 			{{#each options as |user|}}
 		 		<option value="{{user.id}}">{{user.username}}</option>
 			{{/each}}
@@ -14,11 +14,11 @@
 		<table class="striped centered">
 		    <thead>
 		      <tr>
-		          <th>Código</th>
+		          <th>Code</th>
 		          <th>Status</th>
-		          <th>Jugadores</th>
-		          <th>Agregar</th>
-		          <th>Jugar</th>
+		          <th># Players</th>
+		          <th>Join</th>
+		          <th>Play</th>
 		      </tr>
 		    </thead>
 
