@@ -35,8 +35,8 @@ export default class GameCrearController extends Controller {
 	async play(selectId, selectTurn) {
 	  let turn = selectTurn;
 		let id = selectId;
-		console.log(turn);
-		console.log(id);
+		console.log(`Turn: ${turn}`);
+		console.log(`ID: ${id}`);
 	  	let post = await this.store.findRecord('play', id).then((result) => {
 	   	result.set('choice', turn);
 		result.save();

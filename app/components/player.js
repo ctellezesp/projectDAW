@@ -9,13 +9,13 @@ export default class PlayerComponent extends Component {
 	@tracked turn;
 	@tracked oculto = true;
 	@tracked name;
-	//@service store;
+	@service store;
 	@service parent;
 
 	@action
 	didTransition(){
 		let user = this.store.peekRecord('user', id);
-		console.log(user);
+		console.log(`User: ${user}`);
 		name = user.username;
 	}
 
@@ -24,7 +24,7 @@ export default class PlayerComponent extends Component {
 	@action
 	searchUser(id){
 		let user = this.store.peekRecord('user', id);
-		console.log(user);
+		console.log(`User: ${user}`);
 		return user.username;
 	}
 	

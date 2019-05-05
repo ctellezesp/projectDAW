@@ -24,7 +24,7 @@ export default class GameIndexRoute extends Route {
 				games: this.store.findAll('game'),
 				users: this.store.findAll('user')
 			})
-		}, 5000);
+		}, 500);
 	}
 
 

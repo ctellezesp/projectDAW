@@ -25,6 +25,6 @@ export default class AppProfileRoute extends Route {
 				game: this.store.findRecord('game', this.params2.play_id),
 				player: this.store.query('play', {game_id: this.params2.play_id}),
 			});
-		}, 5000);
+		}, 2000);
 	}
 }

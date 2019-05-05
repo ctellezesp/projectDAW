@@ -2,31 +2,31 @@
 	<div class="col s12 crear-header">
 		<div class="row">
 			<div class="col s4">
-				<h5 class="center-align">Código: {{this.model.game.code}}</h5>
+				<h5 class="center-align">Code: {{this.model.game.code}}</h5>
 			</div>
 			<div class="col s4">
-				<h5 class="center-align">Status: {{this.model.game.myStatus}}</h5>
+				<h5 class="center-align">Status: {{if (eq this.model.game.status 1) "Created"}} {{if (eq this.model.game.status 2) "Started"}} {{if (eq this.model.game.status 3) "Completed"}}</h5>
 			</div>
 			<div class="col s4">
-				<h5 class="center-align">Jugadores: {{this.model.game.total_users}}</h5>
+				<h5 class="center-align">Players: {{this.model.game.total_users}}</h5>
 			</div>
 			<div class="col s4">
-				<a id="create" class="btn {{if (or (lt this.model.game.total_users 2) (gt this.model.game.status 1)) "disabled"}}" onclick={{action "startGame" this.model.game.id}} >Comenzar Juego</a>
+				<a id="create" class="btn {{if (or (lt this.model.game.total_users 2) (gt this.model.game.status 1)) "disabled"}}" onclick={{action "startGame" this.model.game.id}} >Start Game</a>
 			</div>
 			<div class="col s4 center-align">
 				{{#if this.model.game.winner_name}}
-					<h5>Ganador: {{this.model.game.winner_name}}</h5>
+					<h5>Winner: {{this.model.game.winner_name}}</h5>
 				{{/if}}
 			</div>
 			<div class="col s4 right-align">
-				<LinkTo @route="game.index"><a class="waves-effect waves-light btn">Salir</a></LinkTo>
+				<LinkTo @route="game.index"><a class="waves-effect waves-light btn">Exit</a></LinkTo>
 			</div>
 		</div>
 	</div>
 	<div class="col s12">
 		{{#each this.model.player as |player|}}
 			<div class="col s6 center-align">
-				<Player @user={{player.user.username}} @id={{player.id}} @game={{this.model.game.id}} @status={{this.model.game.status}} @play={{action this.play}}></Player>
+				<Player @user={{player.user.username}} @id={{player.id}} @game={{this.model.game.id}} @winner={{this.model.game.winner_name}} @play={{action this.play}}></Player>
 			</div>
 		{{/each}}
 	</div>
